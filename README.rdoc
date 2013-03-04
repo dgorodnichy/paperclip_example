@@ -1,6 +1,3 @@
-Paperclip setup
-================================
-
 1. rails new SliceAutomation
 
 2. add gem to Gemfile => gem 'paperclip'
