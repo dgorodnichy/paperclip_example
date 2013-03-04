@@ -8,42 +8,28 @@
 
 5. rake db:migrate
 
-6. 
+6. rails generate paperclip screenshot picture
+  screenshot [model]
+	picture [field]
 
-```ruby
-rails generate paperclip screenshot picture
-```
-screenshot -> model
-picture -> field
-
-7. 
-
-```ruby
-rake db:migrate 
-```
+7. rake db:migrate 
 
 8. In Model:
 
-```ruby
 	class Screenshot < ActiveRecord::Base
 		attr_accessible :title, :picture
 		has_attached_file :picture, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
 	end
-```
 
 9. In Views:
 
-```ruby
 	<%= form_for @screenshot, :url => screenshots_path, :html => { :multipart => true } do |f| %>
 		<%= f.file_field :picture %>
 	<% end %>
-```
 
-```ruby
 	<%= image_tag @user.avatar.url %>
 	<%= image_tag @user.avatar.url(:medium) %>
 	<%= image_tag @user.avatar.url(:thumb) %>
-```
 
 =============
 
