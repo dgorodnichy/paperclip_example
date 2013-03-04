@@ -1,30 +1,30 @@
 Paperclip setup
 ================================
 
-1 rails new SliceAutomation
+1. rails new SliceAutomation
 
-2 add gem to Gemfile => gem 'paperclip'
+2. add gem to Gemfile => gem 'paperclip'
 
-3 bundle install
+3. bundle install
 
-4 rails g screenshot title:string
+4. rails g screenshot title:string
 
-5 rake db:migrate
+5. rake db:migrate
 
-6 rails generate paperclip screenshot picture
+6. rails generate paperclip screenshot picture
   screenshot [model]
-	picture[field]
+	picture [field]
 
-7 rake db:migrate 
+7. rake db:migrate 
 
-8 In Model:
+8. In Model:
 
 	class Screenshot < ActiveRecord::Base
 		attr_accessible :title, :picture
 		has_attached_file :picture, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
 	end
 
-9 In Views:
+9. In Views:
 
 	<%= form_for @screenshot, :url => screenshots_path, :html => { :multipart => true } do |f| %>
 		<%= f.file_field :picture %>
