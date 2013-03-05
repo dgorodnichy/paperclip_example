@@ -12,7 +12,7 @@
   screenshot [model]
 	picture [field]
 
-7. rake db:migrate 
+7. `rake db:migrate` 
 
 8. In Model:
 
