@@ -9,7 +9,7 @@
 5. rake db:migrate
 
 6. rails generate paperclip screenshot picture
-`screenshot [model]`
+`screenshot [model]
 `picture [field]`
 
 7. rake db:migrate 
