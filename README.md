@@ -15,20 +15,23 @@ picture [field]
 1. rake db:migrate 
 
 1. In Model:
-    class Screenshot < ActiveRecord::Base
-    attr_accessible :title, :picture
-    has_attached_file :picture, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
-    end
+(({ 
+class Screenshot < ActiveRecord::Base
+attr_accessible :title, :picture
+has_attached_file :picture, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
+end
+}))
 
 1. In Views:
-    <%= form_for @screenshot, :url => screenshots_path, :html => { :multipart => true } do |f| %>
-    <%= f.file_field :picture %>
-    <% end %>
-    
-    <%= image_tag @user.avatar.url %>
-    <%= image_tag @user.avatar.url(:medium) %>
-    <%= image_tag @user.avatar.url(:thumb) %>
+(({
+<%= form_for @screenshot, :url => screenshots_path, :html => { :multipart => true } do |f| %>
+<%= f.file_field :picture %>
+<% end %>
 
+<%= image_tag @user.avatar.url %>
+<%= image_tag @user.avatar.url(:medium) %>
+<%= image_tag @user.avatar.url(:thumb) %>
+}))
 =============
 
 http://rubydoc.info/gems/paperclip/3.4.1/frames
